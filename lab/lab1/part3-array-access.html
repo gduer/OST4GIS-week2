@@ -57,15 +57,11 @@
       ext: 'png'
     }).addTo(map);
 
-    /* =====================
+    var restaurantData = [[39.955038, -75.211884, "Saad\'s"], [39.950740, -75.168577, "Dizzengoff"], [39.959207, -75.194588, "Changdu Famous Foods"], [39.955398, -75.156786, "DimSum Garden"], [39.952658, -75.192497, "Halal Cart"]]
 
-    Start code
-
-    ===================== */
-
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
-    L.marker([0, 0]).addTo(map);
+    for (i = 0; i <= restaurantData.length; i++){
+      L.marker([restaurantData[i][0], restaurantData[i][1]]).addTo(map).bindPopup(restaurantData[i][2]);
+    }
 
     /* =====================
 

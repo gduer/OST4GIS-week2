@@ -51,15 +51,20 @@
 
     ===================== */
 
-    var data = bikeArrayClean;
+    var data = bikeArrayDirty;
 
     /* =====================
 
     Start code to filter data
 
     ===================== */
+    var dataFiltered = [];
 
-
+    for (i=0;i<bikeArrayDirty.length;i++){
+      if(parseInt(bikeArrayDirty[i][3]) > 20){
+        dataFiltered.push(bikeArrayDirty[i])
+      }
+    }
 
     /* =====================
 
@@ -86,7 +91,10 @@
 
     ===================== */
 
-
+    for (i = 0; i < dataFiltered.length; i++){
+      console.log(dataFiltered[i])
+      L.marker([dataFiltered[i][1], dataFiltered[i][0]]).addTo(map).bindPopup(dataFiltered[i][2]);
+    }
 
     /* =====================
 
