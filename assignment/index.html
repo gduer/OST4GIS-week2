@@ -55,10 +55,27 @@
 
       ===================== */
 
+      var toothIcon = new L.Icon({
+        iconUrl: 'images/tooth.svg',
+        iconSize:     [38, 95]
+      })
+
       var jsonToCsv = function(json) { console.log(json); };
 
+      jsonToCsv(healthCenters);
 
-      var addMarkers = function(map) {};
+      var addMarkers = function(map) {
+        for(i=0; i<healthCenters.length; i++){
+          if(healthCenters[i].DENTAL_PHONE === "N/A"){
+            L.marker([healthCenters[i].LAT, healthCenters[i].LNG]).addTo(map).bindPopup(healthCenters[i].NAME);
+          }
+          else {
+            L.marker([healthCenters[i].LAT, healthCenters[i].LNG], {icon: toothIcon}).addTo(map).bindPopup(healthCenters[i].NAME);
+          }
+        }
+      };
+
+      addMarkers(map);
 
       /* =====================
 
@@ -66,9 +83,6 @@
 
       ===================== */
 
-
-      jsonToCsv(healthCenters);
-      addMarkers(map);
     </script>
     <!--Your code ends here-->
   </body>
